@@ -1,0 +1,10 @@
+$myColor: red;
+
+h1 {
+  color: $myColor;
+}
+
+.main-container{
+    border: 1px solid red;
+    max-width: 1920px;
+}

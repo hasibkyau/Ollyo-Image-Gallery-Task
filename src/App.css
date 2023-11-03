@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container{
+  max-width: 1920px;
 }
 
 .App-logo {
