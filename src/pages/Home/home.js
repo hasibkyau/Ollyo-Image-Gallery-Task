@@ -4,8 +4,8 @@ import Gallery from "../gallery/gallery";
 const Home = () => {
   document.title = "Home";
   return (
-    <div class="main-container">
-      <Gallery/>
+    <div className="main-container">
+      <Gallery />
     </div>
   );
 };
