@@ -6,7 +6,25 @@ const Gallery = () => {
     document.title = "Home";
     return (
       <div class="main-container">
-        <Photos/>
+        {/* <Photos/> */}
+        <div class="gallery">
+          <div class="item-a"></div>
+          <div></div>
+          <div></div>
+          <div></div>
+
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+
+
+        </div>
       </div>
     );
 }
