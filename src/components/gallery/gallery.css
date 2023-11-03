@@ -1,8 +1,8 @@
-.App {
+.Gallery {
   text-align: center;
 }
 
-.App-header {
+.Gallery-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,11 +10,11 @@
   font-size: calc(10px + 1.5vmin);
 }
 
-.App-link {
+.Gallery-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes Gallery-logo-spin {
   from {
     transform: rotate(0deg);
   }
