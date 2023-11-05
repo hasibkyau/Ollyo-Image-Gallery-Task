@@ -86,7 +86,6 @@ const Card = ({ src, title, id, index, moveImage, handleCallback }) => {
         type="checkbox"
         onChange={handleCallback}
       />
-      {/* <input value="test" type="checkbox" onChange={handleChange} /> */}
       <img src={src} alt={title} />
     </div>
   );
@@ -109,27 +108,27 @@ const App = () => {
 
   // Callback function to handle data received from the
   const handleCallback = (childData) => {
-    
-    // console.log("parents:::",childData.target.checked);
-    let value = childData.target.checked;;
-    if(value){
+    let value = childData.target.checked;
+    if (value) {
       setCount(Count + 1);
-    }else{
+      childData.target.className = "active";
+    } else {
       if (Count > 0) {
         setCount(Count - 1);
+        childData.target.className = "checkbox";
       }
     }
-    console.log("Total Image:",Count);
+    console.log("Total Image:", Count);
   };
 
   return (
     <main>
       <div className="container">
         <div className="top-left-bar">
-          <p>Gallery{Count}</p>
+          <p>{Count ? Count + " File Selected" : "Gallery"}</p>
         </div>
         <div className="top-right-bar">
-          <p>Gallery{Count}</p>
+          <p>{Count ? "Delete files" : ""}</p>
         </div>
         {React.Children.toArray(
           images.map((image, index) => (

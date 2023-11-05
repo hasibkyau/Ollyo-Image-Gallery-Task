@@ -29,7 +29,8 @@ main {
     cursor: pointer;
     background-color: white;
     padding: 40px;
-    font-size: 25px;;
+    font-size: 25px;
+    border-radius: 15px;
 }
 
 
@@ -63,6 +64,11 @@ main {
 }
 
 .item .active{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    z-index: 1;
+    margin: 20px;
     display: flex;
 }
 
@@ -84,6 +90,8 @@ main {
     display: flex;
     justify-content: right;
     align-items: center;
+    color: red;
+    font-size: 20px;
 }
 
 .item-0 {
