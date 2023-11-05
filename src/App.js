@@ -13,7 +13,7 @@
 
 // export default App;
 
-import React from "react";
+import React, { useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import './App.css';
 
@@ -21,10 +21,9 @@ import galleryList from "./data.js";
 
 
 
-const Card = ({ src, title, id, index, moveImage }) => {
-
-  
+const Card = ({ src, title, id, index, moveImage, handleCallback }) => {
   const ref = React.useRef(null);
+  const checkboxRef = React.useRef(null);
 
   const [, drop] = useDrop({
     accept: "image",
@@ -76,14 +75,26 @@ const Card = ({ src, title, id, index, moveImage }) => {
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
 
+  // const isChecked = checkboxRef.current?.checked;
+  // console.log(isChecked);
+
   return (
-    <div ref={ref} style={{ opacity }} className={'item-'+index} >
+    <div ref={ref} style={{ opacity }} className={"item item-" + index}>
+      <input
+        ref={checkboxRef}
+        className="checkbox"
+        type="checkbox"
+        onChange={handleCallback}
+      />
+      {/* <input value="test" type="checkbox" onChange={handleChange} /> */}
       <img src={src} alt={title} />
     </div>
   );
 };
 
 const App = () => {
+
+  const [Count, setCount] = useState(0);   
   const [images, setImages] = React.useState(galleryList);
 
   const moveImage = React.useCallback((dragIndex, hoverIndex) => {
@@ -95,22 +106,47 @@ const App = () => {
       return clonedCards;
     });
   }, []);
+
+  // Callback function to handle data received from the
+  const handleCallback = (childData) => {
+    
+    // console.log("parents:::",childData.target.checked);
+    let value = childData.target.checked;;
+    if(value){
+      setCount(Count + 1);
+    }else{
+      if (Count > 0) {
+        setCount(Count - 1);
+      }
+    }
+    console.log("Total Image:",Count);
+  };
+
   return (
     <main>
       <div className="container">
+        <div className="top-left-bar">
+          <p>Gallery{Count}</p>
+        </div>
+        <div className="top-right-bar">
+          <p>Gallery{Count}</p>
+        </div>
         {React.Children.toArray(
           images.map((image, index) => (
             <Card
+              className="card"
               src={image.img}
               title={image.title}
               id={image.id}
               index={index}
               moveImage={moveImage}
+              handleCallback={handleCallback}
             />
           ))
         )}
-        <div>
+        <div className="add-images">
           <img src="/images/image-12.png" alt="add more" />
+          <p>Add Images</p>
         </div>
       </div>
     </main>
