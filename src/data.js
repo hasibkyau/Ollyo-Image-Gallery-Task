@@ -1,4 +1,4 @@
-export default [
+export const galleryList = [
   {
     id: 1,
     name: "product",

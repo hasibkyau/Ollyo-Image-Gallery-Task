@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import galleryList from "../../data.js";
+import { galleryList } from "../../data.js";
 import Card from "../card/card.js";
 import "./gallery.css";
 
