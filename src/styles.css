@@ -15,6 +15,19 @@ main {
     
 }
 
+.add-images {
+    border: 1px solid rgb(142, 147, 180);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.add-images img {
+    width: 30px;
+    height: auto;
+}
 
 .top-bar{
     background-color: white;
